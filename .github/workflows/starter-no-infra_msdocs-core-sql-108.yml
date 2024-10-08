@@ -37,7 +37,8 @@ jobs:
         # got error "The "--output" option isn't supported when building a solution" with:
         #run: dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle
         #so per https://stackoverflow.com/questions/75548945/the-output-option-isnt-supported-when-building-a-solution, changed it to:
-        run: dotnet ef migrations bundle --runtime linux-x64 --property:PublishDir=${{env.DOTNET_ROOT}}/myapp/migrationsbundle
+        #run: dotnet ef migrations bundle --runtime linux-x64 --property:PublishDir=${{env.DOTNET_ROOT}}/myapp/migrationsbundle
+        run: dotnet ef migrations bundle --runtime linux-x64 --property OutputPath=${{env.DOTNET_ROOT}}/myapp/migrationsbundle
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
