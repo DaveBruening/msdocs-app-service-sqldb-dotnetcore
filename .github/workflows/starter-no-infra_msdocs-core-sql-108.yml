@@ -25,7 +25,8 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        # run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -c Release --property:PublishDir=${{env.DOTNET_ROOT}}/myapp
 
       - name: Install .NET EF, groovy?
         run: dotnet tool install -g dotnet -ef --version 8.*
