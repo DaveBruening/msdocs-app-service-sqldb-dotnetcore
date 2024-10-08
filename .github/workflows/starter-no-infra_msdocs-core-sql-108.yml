@@ -29,7 +29,9 @@ jobs:
         run: dotnet publish -c Release --property:PublishDir=${{env.DOTNET_ROOT}}/myapp
 
       - name: Install .NET EF, groovy?
-        run: dotnet tool install -g dotnet -ef --version 8.*
+        # Unrecognized command or argument '-ef':
+        #run: dotnet tool install -g dotnet -ef --version 8.*    
+        run: dotnet tool install -g dotnet-ef --version 8.*
 
       - name: Create Migrations Bundle
         # got error "The "--output" option isn't supported when building a solution" with:
